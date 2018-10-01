@@ -7,19 +7,19 @@ export default function Message({ message, onClickStar, onClickCheckbox }) {
         className += ' selected'
     }
     return (
-        <div className={className}>
+        <div className={className} data-test={`message-row-${message.id}`}>
             <div className="col-xs-1">
                 <div className="row">
                     <div className="col-xs-2">
-                        <input type="checkbox" checked={Boolean(message.selected)} onChange={() => onClickCheckbox(message.id)} />
+                        <input id={`checkbox${message.id}`} type="checkbox" checked={Boolean(message.selected)} onChange={() => onClickCheckbox(message.id)} />
                     </div>
                     <div className="col-xs-2">
-                        <i className={`star fa ${starredClass}`} onClick={() => onClickStar(message.id)} ></i>
+                        <i id={`star${message.id}`} className={`star fa ${starredClass}`} onClick={() => onClickStar(message.id)} ></i>
                     </div>
                 </div>
             </div>
             <div className="col-xs-11">
-                {message.labels.map((label, index) => <span key={index} className="label label-warning">{label}</span>)}
+                {message.labels.map((label, index) => <span key={index} className={`label label-warning ${label}`}>{label}</span>)}
                 <a href="#">
                     {message.subject}
                 </a>
