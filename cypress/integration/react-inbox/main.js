@@ -41,23 +41,23 @@ describe('test react inbox', () => {
     it('should apply label to selected messages when label is clicked', () => {
         //test add personal label
         cy.get('#applyLabelDropdown').select('personal').then(() => {
-            cy.get('[data-test="message-row-2"]').find('span').should('have.class', 'label label-warning personal')
+            cy.get('[data-test="message-row-2"]').find('span').should('contain', 'personal')
         })
 
         //test add dev label
         cy.get('#applyLabelDropdown').select('dev').then(() => {
-            cy.get('[data-test="message-row-4"]').find('span').should('have.class', 'label label-warning dev')
+            cy.get('[data-test="message-row-4"]').find('span').should('contain', 'dev')
         })
 
         //test remove personal label
         cy.get('#removeLabelDropdown').select('personal').then(() => {
-            cy.get('[data-test="message-row-2"]').find('span').should('not.have.class', 'label label-warning personal')
+            cy.get('[data-test="message-row-2"]').find('span').should('not.contain', 'personal')
         })
 
 
         //test remove dev label
         cy.get('#removeLabelDropdown').select('dev').then(() => {
-            cy.get('[data-test="message-row-4"]').find('span').should('not.have.class', 'label label-warning dev')
+            cy.get('[data-test="message-row-4"]').find('span').should('not.contain', 'dev')
         })
 
     })

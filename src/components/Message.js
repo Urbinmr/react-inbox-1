@@ -19,7 +19,7 @@ export default function Message({ message, onClickStar, onClickCheckbox }) {
                 </div>
             </div>
             <div className="col-xs-11">
-                {message.labels.map((label, index) => <span key={index} className={`label label-warning ${label}`}>{label}</span>)}
+                {message.labels.map((label, index) => <span key={index} className='label label-warning'>{label}</span>)}
                 <a href="#">
                     {message.subject}
                 </a>
